@@ -16,7 +16,7 @@ public class Bot {
     public static void main(String[] args) {
 
         /**
-         * Primero 3 creamos constantes, uno llamado token de tipo String y otros dos creados a partir de dos clases
+         * Primero creamos 3 constantes, uno llamado token de tipo String y otros dos creados a partir de dos clases
          * sacadas de las librerias importadas con anterioridad, llamadas client y gateway. El token está recogido en
          * los args del programa, para conseguir esto presionamos el "Edit configurations..." en el desplegable de la
          * clase Bot y añadimos el link del token al apartado arguments.
