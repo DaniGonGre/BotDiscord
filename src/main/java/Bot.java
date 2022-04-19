@@ -4,6 +4,8 @@ import discord4j.core.object.entity.Message;
 import discord4j.core.object.entity.channel.MessageChannel;
 import discord4j.core.spec.EmbedCreateSpec;
 import discord4j.core.spec.MessageCreateSpec;
+
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -70,9 +72,27 @@ public class Bot {
             }
 
             /**
+             * Al poner "!list" el bot mostrará la lista de ficheros del directorio añadido, en este caso
+             * el directorio donde hemos creado el bot de discord.
+             */
+
+            if ("!list".equals(message.getContent())) {
+                        File fichero = new File("/home/dam1/IdeaProjects/BotDiscord");
+                        String[] list = fichero.list();
+
+                        for (String fich : list) {
+                            final MessageChannel channel = message.getChannel().block();
+                            channel.createMessage(fich).block();
+                        }
+
+
+            }
+
+
+            /**
              * Al escribir "!img" el bot insertará una imágen  recogida con un fileAsInputStream por esto creamos
              * un try catch por si no recoge ningún archivo. Después creamos el mensaje añadiéndole un pequeño
-             * texto, el fichero con la imágen y el embed creado anteriormente.
+             * texto, el fichero con la imágen y el embed con el título creado anteriormente.
              */
 
             if ("!img".equals(message.getContent())) {
